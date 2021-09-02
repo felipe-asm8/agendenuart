@@ -1,0 +1,55 @@
+ #{if session.get('servidor.email')} 
+ #{extends 'main.html' /} 
+ #{/if}
+#{elseif session.get('aluno.email')} 
+#{extends 'mainaluno.html' /} 
+#{/elseif} 
+
+#{set title:'Meus dados - Aluno' /}
+
+<meta charset="utf-8">
+<h2>Detalhes de Alunos</h2>
+
+<div class="card-body">
+	<div class="table-responsive">
+		<table class="table table-bordered" id="Servidores.listar"
+			width="100%" cellspacing="0">
+			
+			
+
+			<thead>
+				<tr>
+					<th>Nome</th>
+					<th>Matrícula</th>
+					<th>CPF</th>
+					<th>Email</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr>
+					<td>${aluno.nome}</td>
+					<td>${aluno.matricula}</td>
+					<td>${aluno.cpf}</td>
+					<td>${aluno.email}</td>
+					
+					#{if alunoSessao == aluno?.id}
+					
+					<td>
+					 
+					
+					<a class="btn btn-warning"
+						href="@{Alunos.editar(aluno.id)}">Editar</a>&emsp;<a
+						class="btn btn-danger" href="@{Alunos.remover(aluno.id)}">Remover</a>
+						
+					</td>
+					#{/if} 
+				</tr>
+				
+			</tbody>
+		</table>
+
+	</div>
+</div>
+<a class="btn btn-success" href="@{Application.index}">Página
+	Inicial</a>

@@ -1,0 +1,67 @@
+ #{if session.get('servidor.email')} 
+ #{extends 'main.html' /} 
+ #{/if}
+#{elseif session.get('aluno.email')} 
+#{extends 'mainaluno.html' /} 
+#{/elseif} 
+
+#{set title:'Agendar sala' /}
+
+<meta charset="utf-8">
+<h2>Agendar Sala</h2>
+
+
+
+<form action="@{Agendas.salvar}" method="post" class="user">
+	<input type="hidden" name="agenda.id" value="${agenda?.id}">
+
+	<div class="form-group">
+		E-mail do aluno:<input id="agenda-email" type="email" class="form-control"
+			 name="email">
+			<span class="error-validacao">#{error 'agenda.email' /}</span>
+	</div>
+	
+	<div class="form-group">
+		Turno:<input id="agenda-turno" type="text" class="form-control"
+			value="${agenda?.turno}" name="agenda.turno">
+			<span class="error-validacao">#{error 'agenda.turno' /}</span>
+	</div>
+
+	<div class="form-group">
+		Data:<input id="agenda-data" type="date" class="form-control"
+			placeholder="dd/mm/aaaa" value="${agenda?.data}" name="agenda.data">
+			<span class="error-validacao">#{error 'agenda.data' /}</span>
+			<br>
+	</div>
+
+	<div class="form-group">
+		Horário:<input id="agenda-horario" type="time" class="form-control"
+			value="${agenda?.horario}" name="agenda.horario">
+			<span class="error-validacao">#{error 'agenda.horario' /}</span>
+	</div>
+	
+	
+
+	<div class="form-group">
+		Sala: <select name="agenda.sala.id" class="form-control">
+		<span class="error-validacao">#{error 'agenda.sala' /}</span>
+			<option value="">---</option> #{list items:salas, as: 'sala'} //lista
+			para pegar os elem e chamar ele de sala
+			<option value="${sala.id}" #{if sala.id==agenda?.sala?.id}selected#{/if} >${sala.nome}</option>
+			//lista o curso do aluno #{/list}
+
+		</select>
+
+	</div>
+
+
+	<button class="btn btn-primary btn-user btn-block">Cadastrar</button>
+</form>
+
+
+
+
+
+
+
+

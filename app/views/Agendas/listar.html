@@ -1,0 +1,60 @@
+ #{if session.get('servidor.email')} 
+ #{extends 'main.html' /} 
+ #{/if}
+#{elseif session.get('aluno.email')} 
+#{extends 'mainaluno.html' /} 
+#{/elseif}  
+#{set title:'Lista de Agendamentos' /}
+
+<meta charset="utf-8">
+<h2>Lista de Agendamentos</h2>
+
+
+<div class="card-body">
+	<div class="table-responsive">
+		<table class="table table-bordered" id="Agendas.listar" width="100%"
+			cellspacing="0">
+
+			<thead>
+				<tr>
+					<th>Aluno</th>
+					<th>Turno</th>
+					<th>Data</th>
+					<th>Horário</th>
+					<th>Sala</th>
+					<th>Status</th>
+				</tr>
+			</thead>
+			#{list items:agendas, as: 'agenda'}
+
+			<tbody>
+				<tr>
+					<td>${agenda?.aluno?.nome}</td>
+					<td>${agenda.turno}</td>
+					<td>${agenda.data}</td>
+					<td>${agenda.horario}</td>
+					<td>${agenda.sala.nome}</td>
+					<td>${agenda.deferido}</td> 
+					
+					#{if session.get('servidor.email')}
+					
+					<td>
+					<a class="btn btn-warning"
+						href="@{Agendas.editar(agenda.id)}">Editar</a>&emsp;<a
+						class="btn btn-danger" href="@{Agendas.remover(agenda.id)}">Remover</a>
+						&emsp;<a class="btn btn-success"
+						href="@{Servidores.deferir(agenda.id)}">Deferir</a> &emsp;<a
+						class="btn btn-danger" href="@{Servidores.indeferir(agenda.id)}">Indeferir</a>
+				
+					 
+					#{/if}
+					
+					
+				</tr>
+					
+				#{/list}
+			</tbody>
+
+		</table>
+	</div>
+</div>

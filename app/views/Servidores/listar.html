@@ -1,0 +1,50 @@
+#{extends 'main.html' /} #{set title:'Lista de Servidores Cadastrados'
+/}
+
+<meta charset="utf-8">
+<h2>Lista de Servidor</h2>
+
+<div class="card-body">
+	<div class="table-responsive">
+		<table class="table table-bordered" id="Servidores.listar"
+			width="100%" cellspacing="0">
+			#{list items:servidores, as: 'servidor'}
+
+			<thead>
+				<tr>
+					<th>Nome</th>
+					<th>Matrícula</th>
+					<th>CPF</th>
+					<th>Email</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr>
+					<td>${servidor.nome}</td>
+					<td>${servidor.matricula}</td>
+					<td>${servidor.cpf}</td>
+					<td>${servidor.email}</td>
+					
+					#{if servidorSessao == servidor?.id}
+					
+					<td>
+					 
+					
+					<a class="btn btn-warning"
+						href="@{Servidores.editar(servidor.id)}">Editar</a>&emsp;<a
+						class="btn btn-danger" href="@{Servidores.remover(servidor.id)}">Remover</a>
+						
+					</td>
+					#{/if} 
+				</tr>
+				#{/list}
+			</tbody>
+		</table>
+
+	</div>
+</div>
+<a class="btn btn-success" href="@{Application.index}">Página
+	Inicial</a>
+
+

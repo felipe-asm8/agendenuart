@@ -1,0 +1,38 @@
+#{extends 'main.html' /}
+#{set title:'Lista de Cursos Cadastrados' /}
+
+<meta charset="utf-8">
+<h2>Listar de Salas</h2>
+
+
+<div class="card-body">
+	<div class="table-responsive">
+		<table class="table table-bordered" id="Salas.listar" width="100%"
+			cellspacing="0">
+			
+			<thead>
+				<tr>
+					<th>Nome</th>
+					<th>Número</th>
+					<th>Bloco</th>
+					<th>Opções</th>
+				</tr>
+			</thead>
+			#{list items:salas, as: 'sala'}
+			<tbody>
+				<tr>
+					<td>${sala.nome}</td>
+					<td>${sala.numero}</td>
+					<td>${sala.bloco}</td>
+					<td><a class="btn btn-warning"
+						href="@{Salas.editar(sala.id)}">Editar</a>&emsp;<a
+						class="btn btn-danger" href="@{Salas.remover(sala.id)}">Remover</a>&emsp;
+						</td>
+
+				</tr>
+				#{/list}
+			</tbody>
+		
+		</table>
+	</div>
+</div>

@@ -1,0 +1,50 @@
+#{extends 'main.html' /} 
+#{set title:'Lista de Alunos Cadastrados' /}
+
+<meta charset="utf-8">
+<h2>Cadastrar Curso</h2>
+
+
+
+<form action="@{Cursos.salvar}" method="post" class="user">
+	<input type="hidden" name="curso.id" value="${curso?.id}">
+
+	<div class="form-group">
+		Nome:<input id="curso-nome" type="text" class="form-control"
+			value="${curso?.nome}" name="curso.nome">
+	</div>
+	
+	#{if curso != null} 
+	
+	<br> Alunos matriculados:
+	<ul>
+		#{list items:curso.alunos, as:'aluno'}
+		<li>${aluno.nome}</li> 
+		#{/list}
+	</ul>
+	#{/if}
+
+	<button class="btn btn-primary btn-user btn-block">Salvar</button>
+</form>
+<hr>
+
+#{if curso != null}
+<form action="@{Cursos.adicionarAluno}">
+<input type="hidden" name="idCurso" value="${curso.id}">
+<br>
+	<b>Alunos não matriculados:</b>
+	<select name="idAluno">
+		#{list items:alunosNaoMatriculados, as:'alunoNaoMat'}
+			<option value="${alunoNaoMat.id}">${alunoNaoMat.nome}</option>
+		#{/list}
+	</select><br>
+	<input type="submit" value="Adicionar aluno ao curso">	
+</form>
+#{/if}
+
+
+
+
+
+
+

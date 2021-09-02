@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>Agende NUART</title>
+
+<!-- Custom fonts for this template-->
+<link
+	href="@{'/public/sb-admin/vendor/fontawesome-free/css/all.min.css'}"
+	rel="stylesheet" type="text/css">
+<link
+	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+	rel="stylesheet">
+
+<!-- Custom styles for this template-->
+<link href="@{'/public/stylesheets/sb-admin-2.min.css'}"
+	rel="stylesheet">
+
+#{get 'moreStyles' /}
+
+</head>
+
+<body id="page-top">
+
+	<!-- Page Wrapper -->
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		<ul
+			class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
+			id="accordionSidebar">
+
+			<!-- Sidebar - Brand -->
+			<a
+				class="sidebar-brand d-flex align-items-center justify-content-center"
+				href="@{Alunos.index}">
+				<div class="sidebar-brand-text mx-3">Agende NUART</div>
+			</a>
+
+			<!-- Divider -->
+			<hr class="sidebar-divider my-0">
+
+
+			
+
+			<!-- Nav Item - Pages Collapse Menu -->
+			<li class="nav-item"><a class="nav-link collapsed"
+				data-toggle="collapse" data-target="#collapsePages"
+				aria-expanded="true" aria-controls="collapsePages"> <i
+					class="fas fa-fw fa-folder"></i> <span>Agendar</span>
+			</a>
+				<div id="collapsePages" class="collapse"
+					aria-labelledby="headingPages" data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+					<a class="collapse-item" href="@{Alunos.detalhes}">Meus dadoss</a>
+						<a class="collapse-item" href="@{Agendas.form}">Agendar sala</a> 
+						<a class="collapse-item" href="@{Agendas.listar}">Listar salas</a>
+						 
+					</div>
+					
+					
+				</div></li>
+
+
+
+		</ul>
+		<!-- End of Sidebar -->
+
+		<div id="content-wrapper" class="d-flex flex-column">
+
+			<!-- Main Content -->
+			<div id="content">
+
+				<!-- Topbar -->
+				<nav
+					class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+					<div class="topbar-divider d-none d-sm-block"></div>
+					<h1 class="h3 mb-0 text-gray-800">Sistema de agendamento de
+						espaços artísticos</h1>
+
+
+					<!-- Topbar Navbar -->
+					<ul class="navbar-nav ml-auto">
+
+						<!-- Nav Item - User Information -->
+						<li class="nav-item dropdown no-arrow"><a
+							class="nav-link dropdown-toggle" id="userDropdown" role="button"
+							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+								<span class="mr-2 d-none d-lg-inline text-gray-600 small">
+									<p>${session.get('aluno.email')}</p>
+
+							</span> <i class="fas fa-user" style="color: RoyalBlue;"></i>
+						</a> <!-- Dropdown - User Information -->
+							<div
+								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+								aria-labelledby="userDropdown">
+
+								<a class="dropdown-item" href="@{Login.sair}"
+									data-target="#logoutModal"> <i
+									class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"
+									href="@{Login.sair}"></i> Logout
+								</a>
+							</div></li>
+
+					</ul>
+
+				</nav>
+				<!-- End of Topbar -->
+
+				<!-- Begin Page Content -->
+				<div class="container-fluid">
+
+					#{doLayout /}
+
+					<!-- Content Row -->
+					<div class="row"></div>
+
+					<!-- Content Row -->
+
+					<div class="row">
+
+						<!-- Area Chart -->
+						<div class="col-xl-8 col-lg-7"></div>
+
+						<!-- Pie Chart -->
+						<div class="col-xl-4 col-lg-5"></div>
+					</div>
+
+					<!-- Content Row -->
+					<div class="row">
+
+						<!-- Content Column -->
+						<div class="col-lg-6 mb-4">
+
+
+
+							<!-- Color System -->
+							<div class="row"></div>
+
+						</div>
+
+						<div class="col-lg-6 mb-4"></div>
+					</div>
+
+				</div>
+				<!-- /.container-fluid -->
+
+			</div>
+			<!-- End of Main Content -->
+
+			<!-- Footer -->
+			<footer class="sticky-footer bg-white">
+				<div class="container my-auto">
+					<div class="copyright text-center my-auto">
+						<span>Copyright &copy; Your Website 2021</span>
+					</div>
+				</div>
+			</footer>
+			<!-- End of Footer -->
+
+		</div>
+		<!-- End of Content Wrapper -->
+
+	</div>
+	<!-- End of Page Wrapper -->
+
+	<!-- Scroll to Top Button-->
+	<a class="scroll-to-top rounded" href="#page-top"> <i
+		class="fas fa-angle-up"></i>
+	</a>
+
+
+
+	<!-- Bootstrap core JavaScript-->
+	<script src="@{'/public/sb-admin/vendor/jquery/jquery.min.js'}"></script>
+	<script
+		src="@{'/public/sb-admin/vendor/bootstrap/js/bootstrap.bundle.min.js'}"></script>
+
+	<!-- Core plugin JavaScript-->
+	<script
+		src="@{'/public/sb-admin/vendor/jquery-easing/jquery.easing.min.js'}"></script>
+
+	<!-- Custom scripts for all pages-->
+	<script src="@{'/public/sb-admin/js/sb-admin-2.min.js'}"></script>
+
+	<!-- Page level plugins -->
+	<script src="@{'/public/sb-admin/vendor/chart.js/Chart.min.js'}"></script>
+
+	<!-- Page level custom scripts -->
+	<script src="@{'/public/sb-admin/js/demo/chart-area-demo.js'}"></script>
+	<script src="@{'/public/sb-admin/js/demo/chart-pie-demo.js'}"></script>
+
+	#{get 'moreScripts' /}
+</body>
+</html>

@@ -1,0 +1,40 @@
+#{extends 'main.html' /} 
+#{set title:'Lista de Alunos Cadastrados' /}
+
+<meta charset="utf-8">
+<h2>Cadastrar Sala</h2>
+
+
+
+<form action="@{Salas.salvar}" method="post" class="user">
+	<input type="hidden" name="sala.id" value="${sala?.id}">
+
+	<div class="form-group">
+		Nome:<input id="sala-nome" type="text" class="form-control"
+			value="${sala?.nome}" name="sala.nome">
+			<span class="error-validacao"> #{error 'sala.nome' /}</span>
+	</div>
+	
+		<div class="form-group">
+		Número:<input id="sala-numero" type="text" class="form-control"
+			value="${sala?.numero}" name="sala.numero">
+			<span class="error-validacao"> #{error 'sala.numero' /}</span>
+	</div>
+	
+	<div class="form-group">
+		Bloco:<input id="sala-bloco" type="text" class="form-control"
+			value="${sala?.bloco}" name="sala.bloco">
+			<span class="error-validacao"> #{error 'sala.bloco' /}</span>
+	</div>
+	
+
+
+	<button class="btn btn-primary btn-user btn-block">Cadastrar</button>
+</form>
+
+
+
+
+
+
+

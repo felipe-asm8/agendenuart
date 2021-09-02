@@ -1,0 +1,50 @@
+ #{if session.get('servidor.email')} 
+ #{extends 'main.html' /} 
+ #{/if}
+#{elseif session.get('aluno.email')} 
+#{extends 'mainaluno.html' /} 
+#{/elseif}
+
+<meta charset="utf-8">
+<h2>Lista de Alunos</h2>
+
+
+<div class="card-body">
+	<div class="table-responsive">
+		<table class="table table-bordered" id="Alunos.listar" width="100%"
+			cellspacing="0">
+			
+			<thead>
+				<tr>
+					<th>Nome</th>
+					<th>Matrícula</th>
+					<th>CPF</th>
+					<th>Curso</th>
+					<th>Opções</th>
+				</tr>
+			</thead>
+			#{list items:alunos, as: 'aluno'}
+			<tbody>
+				<tr>
+					<td>${aluno.nome}</td>
+					<td>${aluno.matricula}</td>
+					<td>${aluno.cpf}</td>
+					<td>${aluno?.curso?.nome}</td>
+					
+					
+					
+					<td><a class="btn btn-warning"
+						href="@{Alunos.editar(aluno.id)}">Editar</a>&emsp;<a
+						class="btn btn-danger" href="@{Alunos.remover(aluno.id)}">Remover</a></td>
+					 
+				</tr>
+				#{/list}
+			</tbody>
+		
+		</table>
+	</div>
+</div>
+<a class="btn btn-success" href="@{Application.index}">Página
+	Inicial</a>
+	
+	

@@ -1,0 +1,50 @@
+#{extends 'mainaluno.html' /} 
+#{set title:'Agendar sala' /}
+
+<meta charset="utf-8">
+<h2>Agendar Sala</h2>
+
+
+
+<form action="@{Salas.salvar}" method="post" class="user">
+	<input type="hidden" name="sala.id" value="${sala?.id}">
+
+	<div class="form-group">
+		Turno:<input id="sala-turno" type="text" class="form-control"
+			value="${sala?.turno}" name="sala.turno">
+	</div>
+	
+	<div class="form-group">
+		Turno: <select name="agenda.turno.id" class="form-control">
+			<option value="---"></option> #{list items:turnos, as: 'sala'} //lista
+			para pegar os elem e chamar ele de sala
+			<option value="${sala.id}" #{if sala.id== agenda?.sala?.id} selected#{/if} >${sala.nome}</option>
+			//lista o curso do aluno #{/list}
+
+		</select>
+
+	</div>
+	
+	<div class="form-group">
+		Data: <input type="text" id="sala-data"  class="form-control name="sala.data" placeholder="dd/mm/aaaa" 
+		value="${sala?.data?.format('dd/MM/yyyy')}"><br>
+	</div>
+	
+	<div class="form-group">
+		Horário:<input id="sala-horario" type="time" class="form-control"
+			value="${sala?.horario}" name="sala.horario">
+	</div>
+
+	<div class="form-group">
+		Sala: <select name="agenda.sala.id" class="form-control">
+			<option value="---"></option> #{list items:salas, as: 'sala'} //lista
+			para pegar os elem e chamar ele de sala
+			<option value="${sala.id}" #{if sala.id== agenda?.sala?.id} selected#{/if} >${sala.nome}</option>
+			//lista o curso do aluno #{/list}
+
+		</select>
+
+	</div>
+
+
+

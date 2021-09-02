@@ -1,0 +1,134 @@
+ #{if session.get('servidor.email')} 
+ #{extends 'main.html' /} 
+ #{/if}
+#{elseif session.get('aluno.email')} 
+#{extends 'mainaluno.html' /} 
+#{/elseif}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>AgendeNUART - Cadastro Aluno</title>
+
+<!-- Custom fonts for this template-->
+<link href="@{'/public/vendor/fontawesome-free/css/all.min.css'}"
+	rel="stylesheet" type="text/css">
+<link
+	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+	rel="stylesheet">
+
+<!-- Custom styles for this template-->
+<link href="@{'/public/stylesheets/sb-admin-2.min.css'}"
+	rel="stylesheet">
+<link href="@{'/public/stylesheets/main.css'}" rel="stylesheet">
+</head>
+
+<body class="bg-gradient-primary">
+
+	<div class="container">
+
+		<div class="card o-hidden border-0 shadow-lg my-5">
+			<div class="card-body p-0">
+				<!-- Nested Row within Card Body -->
+				<div class="row">
+					<div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+					<div class="col-lg-7">
+						<div class="p-5">
+							<div class="text-center">
+								<h1 class="h4 text-gray-900 mb-4">Cadastro Aluno:</h1>
+							</div>
+							<form action="@{Alunos.salvar}" method="post" class="user">
+								<input type="hidden" name="aluno.id" value="${aluno?.id}">
+
+								<div class="form-group">
+									Nome completo:<input id="aluno-nome" type="text"
+										class="form-control" value="${aluno?.nome}" name="aluno.nome">
+									<span class="error-validacao">#{error 'aluno.nome' /}</span>
+								</div>
+								<div class="form-group">
+									Matrícula:<input id="aluno-matricula" type="text"
+										class="form-control" name="aluno.matricula"
+										value="${aluno?.matricula}"> <span
+										class="error-validacao"> #{error 'aluno.matricula' /}</span>
+								</div>
+								<div class="form-group">
+									CPF:<input id="aluno-cpf" type="text" class="form-control"
+										name="aluno.cpf" value="${aluno?.cpf}"> <span
+										class="error-validacao">#{error 'aluno.cpf' /}</span>
+								</div>
+								<div class="form-group">
+									E-mail:<input id="aluno-email" type="email"
+										class="form-control" name="aluno.email"
+										value="${aluno?.email}"> <span class="error-validacao">#{error
+										'aluno.email' /}</span>
+								</div>
+								<div class="form-group">
+
+									Senha:<input id="aluno-senha" type="password"
+										class="form-control" name="aluno.senha"
+										> <span class="error-validacao">#{error
+										'aluno.senha' /}</span>
+
+
+								</div>
+								<div class="form-group">
+									Curso: <select name="aluno.curso.id" class="form-control">
+										<span class="error-validacao">#{error 'aluno.curso' /}</span>
+										<option value="">---</option> #{list items:cursos, as:
+										'curso'}
+										<option value="${curso.id}" #{if curso.id==
+											aluno?.curso?.id} selected#{/if} >${curso.nome}</option>
+
+										#{/list}
+
+									</select>
+
+								</div>
+
+								<button class="btn btn-primary btn-user btn-block">
+									Cadastrar</button>
+							</form>
+							<hr>
+
+							<div class="text-center">
+								<a class="small" href="@{Login.form}">Já possui cadastro?
+									Faça Login</a>
+
+
+							</div>
+
+
+
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<!-- Bootstrap core JavaScript-->
+	<script src="@{'/public/vendor/jquery/jquery.min.js'}"></script>
+	<script src="@{'/public/vendor/bootstrap/js/bootstrap.bundle.min.js'}"></script>
+
+	<!-- Core plugin JavaScript-->
+	<script src="@{'/public/vendor/jquery-easing/jquery.easing.min.js'}"></script>
+
+	<!-- Custom scripts for all pages-->
+	<script src="@{'/public/javascripts/sb-admin-2.min.js'}"></script>
+
+</body>
+
+</html>
