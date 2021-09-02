@@ -15,6 +15,10 @@
     <booleanAttribute key="org.eclipse.jdt.launching.DEFAULT_CLASSPATH" value="false"/>
     <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="play.server.Server"/>
     <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="agendenuart"/>
+<<<<<<< HEAD
     <stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value=" -noverify -Xdebug -Xrunjdwp:transport=dt_socket,address=0,server=y,suspend=n -Dplay.debug=yes -Dplay.id= -Dapplication.path=&quot;${project_loc:agendenuart}&quot; -Djava.endorsed.dirs=&quot;C:\Program Files\Play Framework 1.4.5/framework/endorsed&quot; -javaagent:&quot;C:\Program Files\Play Framework 1.4.5/framework/play-1.4.5.jar&quot;"/>
+=======
+    <stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value=" -noverify -Xdebug -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=n -Dplay.debug=yes -Dplay.id= -Dapplication.path=&quot;${project_loc:agendenuart}&quot; -Djava.endorsed.dirs=&quot;C:\Users\Ellena\Documents\IF 2020\PPI\play-1.4.5\play-1.4.5/framework/endorsed&quot; -javaagent:&quot;C:\Users\Ellena\Documents\IF 2020\PPI\play-1.4.5\play-1.4.5/framework/play-1.4.5.jar&quot;"/>
+>>>>>>> 7acf8e1249d49b6204a0de77293849ec5b4b845b
 </launchConfiguration>
 
